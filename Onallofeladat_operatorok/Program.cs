@@ -40,23 +40,52 @@ namespace operatorok3
 
 
             Masodikfeladat(kifejezes);
-            Harmadikfeladat();
+            Harmadikfeladat(kifejezes);
+            Negyedikfeladat(kifejezes);
 
             Console.ReadKey();
         }
 
-        private static void Harmadikfeladat()
+        private static void Negyedikfeladat(List<Kif> kifejezes)
         {
-            Console.WriteLine("Harmadik feladat: Hány ");
-
+            bool van = false;
+            int index = 0;
+            while (!van && index <kifejezes.Count)
+	        {
+                if (kifejezes[index].elso % 10 == 0 && kifejezes[index].masodik % 10 ==0)
+	            {
+                    van = true;
+                    Console.WriteLine($"Negyedik feladat: Van ilyen kifejezés");
+	            }
+                index++;
+	        }
+            if (!van)
+	        {
+                Console.WriteLine("Negyedik feladat: Nincs ilyen kifejezés.");
+	        }
         }
+
+        private static void Harmadikfeladat(List<Kif> kifejezes)
+        {
+            int darab = 0;
+            foreach (var item in kifejezes)
+	        {
+                if (item.jelek == "mod")
+	            {
+                    darab ++;
+	            }
+	        }
+            Console.WriteLine($"Harmadik feladat: {darab}");
+        }
+
+
+      
+
+       
 
         private static void Masodikfeladat(List<Kif> kifejezes)
         {
-
-
-
-            Console.WriteLine($"Kifejezések száma: {kifejezes.Count}");
+            Console.WriteLine($"Második feladat: Kifejezések száma: {kifejezes.Count}");
         }
 
 
